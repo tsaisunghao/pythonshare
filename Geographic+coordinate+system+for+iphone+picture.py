@@ -4,18 +4,18 @@
 # In[1]:
 
 import PIL.Image
-import csv
+
 
 
 # In[2]:
 
-direc = 'C:/Users/Vincent/Desktop/IMG_'
+direc = 'your file directory'
 
 
 # In[3]:
 
-head = ('檔案','緯度','經度')
-outputFile = open(r'D:\black\file.csv','w',newline = '')
+head = ('file','latitude','longitude')
+outputFile = open(r'your file directory','w',newline = '')
 outputWriter = csv.writer(outputFile)
 outputWriter.writerow(head)
 
@@ -27,8 +27,8 @@ for i in range(1,7):
     img = PIL.Image.open(direcs)
     exif_data = img._getexif()
     coordi = exif_data[34853]
-    latitude = coordi[2][0][0] #緯度
-    longitude = coordi[4][0][0] # 經度
+    latitude = coordi[2][0][0] #latitude
+    longitude = coordi[4][0][0] # longitude
     coordination = (str(i)+ '.jpg',latitude,longitude)
     print (coordination)
     
